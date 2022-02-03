@@ -1,0 +1,67 @@
+{
+    "title": {
+        "title1": "Chuyên khoa",
+        "content1":"Tìm bác sĩ theo chuyên khoa",
+        "title2":"Cơ sở y tế",
+        "content2":"Chọn bệnh viện phòng khám",
+        "title3":"Bác sĩ",
+        "content3":"Chọn bác sĩ giỏi",
+        "title4":"Gói khám",
+        "content4":"Khám sức khỏe tổng quát"
+    },
+    "support":"Hỗ trợ",
+    "language":"Chọn ngôn ngữ",
+    "bigTitle":{
+        "1":"NỀN TẢNG Y TẾ",
+        "2":"CHĂM SÓC SỨC KHỎE TOÀN DIỆN"
+    },
+    "search":"Tìm chuyên khoa khám bệnh",
+    "service":{
+        "1":"Khám chuyên khoa",
+        "2":"Khám từ xa",
+        "3":"Khám tổng quát",
+        "4":"Xét nghiệm y học",
+        "5":"Sức khỏe tinh thần",
+        "6":"Khám nha khoa"
+    },
+    "system":"Hệ thống",
+    "welcome":"Xin chào, ",
+    "admin":{
+        "manage-user":"Người dùng",
+        "manage-doctor":"Quản lý bác sĩ",
+        "crud":"CRUD user",
+        "crud-ngrx":"CRUD NgRx",
+        "clinic":"Phòng khám",
+        "manage-clinic":"Quản lý phòng khám",
+        "specialty":"Chuyên khoa",
+        "manage-specialty":"Quản lý chuyên khoa",
+        "handbook":"Cẩm nang",
+        "manage-handbook":"Quản lý cẩm nang"
+    },
+    "doctor":{
+        "manage-schedule":"Quản lý kế hoạch khám bệnh",
+        "manage-patient":"Quản lý bệnh nhân"
+    },
+    "manage-user":{
+        "add":"Thêm mới người dùng",
+        "email":"Email",
+        "password":"Mật khẩu",
+        "first-name":"Tên",
+        "last-name":"Họ",
+        "phone-number":"Số điện thoại",
+        "address":"Địa chỉ",
+        "gender":"Giới tính",
+        "position":"Chức danh",
+        "role":"Vai trò",
+        "image":"Ảnh đại diện",
+        "save":"Lưu user",
+        "change":"Lưu thay đổi"
+    },
+    "home-page":{
+        "outstandingDoctor":"Bác sĩ nỗi bậc tuần qua",
+        "more-infor":"Xem thêm",
+        "specialty":"Chuyên khoa phổ biến",
+        "clinic":"Cơ sở y tế nổi bậc"
+    }
+}
+

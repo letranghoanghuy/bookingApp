@@ -1,0 +1,26 @@
+<div class="section-share section-medical-facility">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="title-section">{{'home-page.clinic'| translate}}</span>
+            <button class="btn-section">{{'home-page.more-infor'| translate}}</button>
+        </div>
+        <div class="section-body">
+            <owl-carousel-o [options]="customOptions" #owlCar>
+                <ng-container *ngFor="let spec of clinics">
+                    <ng-template carouselSlide>
+                        <div class="section-customize" style="cursor: pointer" (click)="showDetailSpec(spec)">
+                            <div class="customize-border">
+                                <div class="bg-image section-specialty" style="background-image: url({{spec.image}})">
+                                </div>
+                                <div class="text-name">{{spec.name}}</div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ng-container>    
+            </owl-carousel-o>
+        </div>
+        <button class="slick-prev" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slick-next" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></button>
+
+    </div>
+</div>

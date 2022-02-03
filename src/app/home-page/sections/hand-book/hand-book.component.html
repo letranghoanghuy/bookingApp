@@ -1,0 +1,45 @@
+<div class="section-share section-handbook">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="title-section">Cẩm nang</span>
+            <button class="btn-section">xem thêm</button>
+        </div>
+        <div class="section-body">
+            <owl-carousel-o [options]="customOptions" #owlCar>
+                <ng-template carouselSlide>
+                    <div class="section-customize">
+                        <div class="bg-image section-handbook"></div>
+                        <div>Cẩm nang 1</div> 
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="section-customize">
+                        <div class="bg-image section-handbook"></div>
+                        <div>Cẩm nang 2</div> 
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="section-customize">
+                        <div class="bg-image section-handbook"></div>
+                        <div>Cẩm nang 3</div> 
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="section-customize">
+                        <div class="bg-image section-handbook"></div>
+                        <div>Cẩm nang 4</div> 
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="section-customize">
+                        <div class="bg-image section-handbook"></div>
+                        <div>Cẩm nang 5</div> 
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+        <button class="slick-prev" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slick-next" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></button>
+
+    </div>
+</div>

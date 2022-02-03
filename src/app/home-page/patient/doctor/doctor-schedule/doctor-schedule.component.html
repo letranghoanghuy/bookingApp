@@ -1,0 +1,102 @@
+<div class="doctor-schedule-container">
+  <div class="all-schedule">
+    <span>Chọn ngày: </span>
+    <select [(ngModel)]="date" (ngModelChange)="dataChanged($event)" placeholder="Chọn ngày">
+      <option *ngFor="let date of arrDate" [ngValue]="date.value">{{date.label}}</option>
+    </select>
+  </div>
+  <div class="all-time">
+    <div class="text-calendar">
+      <span><i class="fas fa-calendar-alt"></i>Lịch khám</span>
+    </div>
+    <div class="time-content">
+      <div *ngIf="times.length > 0">
+        <button class="btn" type="button" *ngFor="let time of times" data-toggle="modal" data-target="#exampleModal"
+          (click)="selected(time)">{{time?.timeTypeData?.valueVi}}</button>
+      </div>
+      <span *ngIf="times.length ==0">Không có lịch khám trong ngày này</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" style="z-index: 100000;"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thông tin đặt lịch khám bệnh</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-profile-doctor [docid]="doctorId" [ishow]="false" [timeData]="time" [date]="newTime">
+          </app-profile-doctor>
+
+          <div class="row">
+            <div class="col-12 form-group">Giá khám: {{detailDoctor?.Doctor_Infor?.priceTypeData?.valueVi |
+              currency:'VND'}}</div>
+            <div class="col-6 form-group">
+              <label>Họ tên</label>
+              <input type="text" class="form-control" formControlName="fullName" />
+              <div *ngIf="bookingForm.get('fullName').touched && !bookingForm.get('fullName').valid" style="color:red">
+                Không được để trống họ tên
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label>Số điện thoại</label>
+              <input type="text" class="form-control" formControlName="phoneNumber" />
+              <div *ngIf="bookingForm.get('phoneNumber').touched && !bookingForm.get('phoneNumber').valid" style="color:red">
+                Không được để trống số điện thoại
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label>Địa chỉ email</label>
+              <input type="email" class="form-control" formControlName="email" />
+              <div *ngIf="bookingForm.get('email').touched && !bookingForm.get('email').valid" style="color:red">
+                Không được để trống email
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label>Địa chỉ liên hệ</label>
+              <input type="text" class="form-control" formControlName="address" />
+              <div *ngIf="bookingForm.get('address').touched && !bookingForm.get('address').valid" style="color:red">
+                Không được để trống địa chỉ
+              </div>
+            </div>
+            <div class="col-12 form-group">
+              <label>Lý do khám</label>
+              <input type="text" class="form-control" formControlName="reason" />
+              <div *ngIf="bookingForm.get('reason').touched && !bookingForm.get('reason').valid" style="color:red">
+                Không được để trống lý do
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label>Ngày sinh</label>
+              <input type="date" class="form-control" formControlName="date" />
+              <div *ngIf="bookingForm.get('date').touched && !bookingForm.get('date').valid" style="color:red">
+                Không được để trống lý do
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label>Giới tính</label>
+              <select class="form-control" formControlName="gender">
+                <option *ngFor="let gender of genders" value="{{gender.keyMap}}">{{gender.valueVi}}</option>
+              </select>
+              <div *ngIf="bookingForm.get('gender').touched && !bookingForm.get('gender').valid" style="color:red">
+                Không được để trống giới tính
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!bookingForm.valid">Xác nhận</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

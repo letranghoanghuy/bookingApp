@@ -1,0 +1,53 @@
+<div class='login-background'>
+    <div class='login-container'>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class='login-content row'>
+                <div class='col-12 text-login'>Login</div>
+                <div class='col-12 form-group login-input'>
+                    <label>UserName</label>
+                    <input type='text' class='form-control' formControlName="email" />
+                    <div *ngIf="loginForm.get('email').touched && !loginForm.get('email').valid" style="color:red">
+                        <div *ngIf="loginForm.get('email').errors.required">
+                            Email is required
+                        </div>
+                        <div *ngIf="loginForm.get('email').errors.email">
+                            Invalid email
+                        </div>
+                    </div>
+                </div>
+                <div class='col-12 form-group login-input'>
+                    <label>Password</label>
+                    <div class='custom-input'>
+                        <input type="password" class='form-control' formControlName="password"
+                        [type]="isShowPassword ? 'text' : 'password'" />
+                        <span (click)="showHide()">
+                            <i [ngClass]="isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'"></i>
+                        </span>
+                    </div>
+                    <div *ngIf="loginForm.get('password').touched && !loginForm.get('password').valid">
+                        <div style="color:red">
+                            Password is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" style="color: red;">
+                    {{ response.message}}
+                </div>
+                <div class='col-12'>
+                    <button class='btn-login' type="submit" [disabled]="!loginForm.valid">Login</button>
+                </div>
+
+                <div class='col-12'>
+                    <span>Forgot Password</span>
+                </div>
+                <div class="col-12 text-center mt-3">
+                    <span>Or Login with:</span>
+                </div>
+                <div class='col-12 social-login'>
+                    <i class="fab fa-google-plus-g google"></i>
+                    <i class="fab fa-facebook-f facebook"></i>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<app-system-header></app-system-header>
+
+<div class="m-s-container">
+    <div class="m-s-title">
+        Quản lý kế hoạch khám bệnh bác sĩ
+    </div>
+
+    <div class="container">
+        <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label>Chọn bác sĩ</label>
+                    <ng-select formControlName="doctorId">
+                        <ng-option *ngFor="let doc of doctors" [value]="doc.id">{{doc.lastName +' '+doc.firstName}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+                <div class="col-6 form-group">
+                    <label>Chọn ngày</label>
+                    <input class="form-control" type="date" formControlName="date"/>
+                </div>
+                <div class="col-12 pick-hour">
+                    <button class="btn" *ngFor="let time of times; let i =index"
+                        [ngClass]="{'active': time.isSelected == true}"
+                        (click)="time.isSelected = !time.isSelected"
+                        type="button"
+                        >{{time.valueVi}}</button>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!scheduleForm.valid">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>

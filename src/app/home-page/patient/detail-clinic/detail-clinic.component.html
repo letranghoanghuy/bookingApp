@@ -1,0 +1,30 @@
+<div class="specialty-container">
+    <app-home-header></app-home-header>
+    <div class="specialty-body">
+        <div class="specialty-description">
+            <h3>{{detailClinic?.name}}</h3>
+            <div [innerHTML]="detailClinic?.description"></div>
+        </div>
+        
+        <div class="each-doctor" *ngFor="let doc of doctor;let i = index">
+            <div class="content-left">
+                <div class="profile">
+                    <app-profile-doctor [docid]="doctor[i].doctorId" [ishow]="true">
+                    </app-profile-doctor>
+                    <span (click)="detail(doc.doctorId)"
+                    style="color:blue;cursor: pointer;">Xem them</span>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="schedule">
+                    <app-doctor-schedule [doctorId]="doc.doctorId"></app-doctor-schedule>
+                </div>
+                <div class="extra">
+                    <app-doctor-extra-infor [doctorId]="doc.doctorId"></app-doctor-extra-infor>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

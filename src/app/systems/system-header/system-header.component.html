@@ -1,0 +1,49 @@
+<div class="header">
+    <div class="left bg-primary">
+        <div class="sec1 dropdown" *ngIf="role =='R1'">
+            <a class="dropbtn">{{'admin.manage-user'| translate}}</a>
+            <div class="dropdown-content">
+                <a href="#" [routerLink]="['/systems/manage-doctor']">{{'admin.manage-doctor'| translate}}</a>
+                <a href="#" [routerLink]="['/systems/manage-schedule']">{{'doctor.manage-schedule'| translate}}</a>
+                <a href="#" [routerLink]="['/systems/manage-user']">{{'admin.crud'| translate}}</a>
+                <a href="#" [routerLink]="['/systems/user-ngrx']">{{'admin.crud-ngrx'| translate}}</a>
+            </div>
+        </div>
+
+        <div class="sec1 dropdown" *ngIf="role =='R2'">
+            <a class="dropbtn">{{'admin.manage-user'| translate}}</a>
+            <div class="dropdown-content">
+                <a href="#" [routerLink]="['/systems/manage-schedule']">{{'doctor.manage-schedule'| translate}}</a>
+                <a href="#" [routerLink]="['/systems/manage-patient']">{{'doctor.manage-patient'| translate}}</a>
+            </div>
+        </div>
+
+        <div class="sec2 dropdown" *ngIf="role =='R1'">
+            <a class="dropbtn">{{'admin.clinic'| translate}}</a>
+            <div class="dropdown-content">
+                <a href="#" [routerLink]="['/systems/manage-clinic']">{{'admin.manage-clinic'| translate}}</a>
+            </div>
+        </div>
+        <div class="sec3 dropdown" *ngIf="role =='R1'">
+            <a class="dropbtn">{{'admin.specialty'| translate}}</a>
+            <div class="dropdown-content">
+                <a href="#" [routerLink]="['/systems/manage-specialty']">{{'admin.manage-specialty'| translate}}</a>
+            </div>
+        </div>
+        <div class="sec4 dropdown" *ngIf="role =='R1'">
+            <a class="dropbtn">{{'admin.handbook'| translate}}</a>
+            <div class="dropdown-content">
+                <a href="#">{{'admin.manage-handbook'| translate}}</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="language bg-primary">
+        <span>{{'welcome'| translate}} {{userInfo && userInfo.firstName ? userInfo.firstName :''}}!</span>
+        <div class="language-vi" (click)="changeLanguage('vi')" [class.active]="change == 'vi'">VN</div>
+        <div class="language-en" (click)="changeLanguage('en')" [class.active]="change == 'en'">EN</div>
+    </div>
+    <div class="right bg-primary">
+        <i class="fas fa-sign-out-alt" title="Log out" (click)="onLogout($event)"></i>
+    </div>
+</div>

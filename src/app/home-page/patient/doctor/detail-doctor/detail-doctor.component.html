@@ -1,0 +1,29 @@
+<app-home-header></app-home-header>
+
+<div class="doctor-detail-container">
+    <div class="intro-doctor">
+        <div class="content-left" style="background-image: url({{avatar}});"></div>
+        <div class="content-right">
+            <div class="up">
+                {{language == 'vi' ?nameVi:nameEn}}
+            </div>
+            <div class="down">
+                {{detailDoctor?.Markdown?.description}} 
+            </div>
+        </div>
+    </div>
+    <div class="schedule-doctor">
+        <div class="cont-left">
+            <app-doctor-schedule [doctorId]="id"></app-doctor-schedule>
+        </div>
+        <div class="cont-right">
+            <app-doctor-extra-infor [doctorId]="id"></app-doctor-extra-infor>
+        </div>
+    </div>  
+    <div class="detail-infor">
+        <div [innerHTML]="detailDoctor?.Markdown?.contentHTML"></div>
+    </div>
+    <div class="comment-doctor">
+
+    </div>
+</div>

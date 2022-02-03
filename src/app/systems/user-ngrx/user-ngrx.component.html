@@ -1,0 +1,130 @@
+<app-system-header></app-system-header>
+<div class="text-center">Manage Users With NgRx</div>
+
+<div class="container">
+  <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+    <span>{{'manage-user.add'| translate}}</span>
+    <div class="form-row">
+      <div class="form-group col-md-6" [hidden]="isEdit">
+        <label>{{'manage-user.email'| translate}}</label>
+        <input type="email" class="form-control" formControlName="email"/>
+        <div *ngIf="addUserForm.get('email').touched && !addUserForm.get('email').valid" style="color:red">
+          <div *ngIf="addUserForm.get('email').errors.required">
+            Email is required
+          </div>
+          <div *ngIf="addUserForm.get('email').errors.email">
+            Invalid email
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6" [hidden]="isEdit">
+        <label>{{'manage-user.password'| translate}}</label>
+        <input type="password" class="form-control" formControlName="password"/>
+        <div *ngIf="addUserForm.get('password').touched && !addUserForm.get('password').valid" style="color:red">
+          Password is required
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>{{'manage-user.first-name'| translate}}</label>
+        <input type="text" class="form-control" formControlName="firstName">
+        <div *ngIf="addUserForm.get('firstName').touched && !addUserForm.get('firstName').valid" style="color:red">
+          First name is required
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>{{'manage-user.last-name'| translate}}</label>
+        <input type="text" class="form-control" formControlName="lastName">
+        <div *ngIf="addUserForm.get('lastName').touched && !addUserForm.get('lastName').valid" style="color:red">
+          Last name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>{{'manage-user.address'| translate}}</label>
+      <input type="text" class="form-control" formControlName="address">
+      <div *ngIf="addUserForm.get('address').touched && !addUserForm.get('address').valid" style="color:red">
+        Address is required
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>{{'manage-user.phone-number'| translate}}</label>
+        <input type="text" class="form-control" formControlName="phoneNumber">
+        <div *ngIf="addUserForm.get('phoneNumber').touched && !addUserForm.get('phoneNumber').valid" style="color:red">
+          Phone number is required
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>{{'manage-user.image'| translate}}</label>
+        <div class="preview-img-container">
+          <input type="file" id="previewImg" hidden (change)="changeImg($event)">
+          <label for="previewImg" class="label-upload">Tải ảnh <i class="fas fa-upload"></i></label>
+          <div class="preview-image" style="background-image: url({{imgThumb}})" (click)="open(0)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>{{'manage-user.gender'| translate}}</label>
+        <select class="form-control" formControlName="gender">
+          <option *ngFor="let gender of genders" value="{{gender.keyMap}}">{{language == 'vi' ?
+            gender.valueVi:gender.valueEn}}</option>
+        </select>
+        <div *ngIf="addUserForm.get('gender').touched && !addUserForm.get('gender').valid" style="color:red">
+          Gender is required
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label>{{'manage-user.position'| translate}}</label>
+        <select class="form-control" formControlName="positionId">
+          <option *ngFor="let position of positions" value="{{position.keyMap}}">{{language == 'vi' ?
+            position.valueVi:position.valueEn}}</option>
+        </select>
+        <div *ngIf="addUserForm.get('positionId').touched && !addUserForm.get('positionId').valid" style="color:red">
+          Position is required
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label>{{'manage-user.role'| translate}}</label>
+        <select class="form-control" formControlName="roleId">
+          <option *ngFor="let role of roles" value="{{role.keyMap}}">{{language == 'vi' ? role.valueVi:role.valueEn}}
+          </option>
+        </select>
+        <div *ngIf="addUserForm.get('roleId').touched && !addUserForm.get('roleId').valid" style="color:red">
+          Role is required
+        </div>
+      </div>
+    </div>
+    <div style="color:red">{{errMessage}}</div>
+    <button *ngIf="!isEdit" type="submit" class="btn btn-primary" [disabled]="!addUserForm.valid">{{'manage-user.save'| translate}}</button>
+    <button *ngIf="isEdit" type="submit" class="btn btn-warning" [disabled]="!addUserForm.valid">{{'manage-user.change'| translate}}</button>
+  </form>
+
+  <table class="table table-bordered table-striped my-4">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.email}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.address}}</td>
+        <td>
+          <i class="fas fa-user-edit text-warning" style="cursor:pointer" (click)="openEdit(user)"></i>
+          <i class="fas fa-trash-alt mx-3 text-danger" style="cursor:pointer" (click)="deleteUser(user.id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,24 @@
+<app-system-header></app-system-header>
+
+<div class="container">
+    <h3 class="text-center">Quản lý chuyên khoa</h3>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-6 form-group">
+                <label>Tên chuyên khoa</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="col-6 form-group">
+                <label>Ảnh chuyên khoa</label>
+                <input type="file" class="form-control-file" (change)="changeImg($event)">
+            </div>
+            <div class="col-12 form-group">
+                <ckeditor formControlName="description"></ckeditor>
+            </div>
+            <div class="col-12 form-group">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

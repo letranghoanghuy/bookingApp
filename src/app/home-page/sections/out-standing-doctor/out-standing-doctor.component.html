@@ -1,0 +1,31 @@
+<div class="section-share section-outstanding-doctor">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="title-section">{{'home-page.outstandingDoctor'| translate}}</span>
+            <button class="btn-section">{{'home-page.more-infor'| translate}}</button>
+        </div>
+        <div class="section-body">
+            <owl-carousel-o [options]="customOptions" #owlCar>
+                <ng-container *ngFor="let doctor of doctors">
+                    <ng-template carouselSlide>
+                        <div class="section-customize" (click)="showDetailDoctor(doctor)">
+                            <div class="customize-border">
+                                <div class="outer-bg">
+                                    <div class="bg-image section-outstanding-doctor"
+                                        style="background-image: url({{doctor.image}})"></div>
+                                </div>
+                                <div class="position text-center">
+                                    <div>{{language == 'vi' ? doctor.name.nameVi:doctor.name.nameEn}}</div>
+                                    <div>Co xuong khop</div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+        <button class="slick-prev" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slick-next" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></button>
+
+    </div>
+</div>

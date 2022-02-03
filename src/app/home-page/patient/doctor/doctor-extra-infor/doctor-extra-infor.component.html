@@ -1,0 +1,31 @@
+<div class="extra-container">
+    <div class="content-up">
+        <div class="text-address">ĐỊA CHỈ KHÁM</div>
+        <div class="name-clinic">{{extraInfor?.nameClinic}}</div>
+        <div class="detail-address">{{extraInfor?.addressClinic}}</div>
+    </div>
+    <div class="content-down">
+        <div *ngIf="isShowDetail == false" class="short">
+            GIÁ KHÁM: 
+            {{extraInfor?.priceTypeData?.valueVi | currency:'VND'}}
+            <span (click)="isShowDetail = true">Xem chi tiết</span>
+        </div>
+        <div *ngIf="isShowDetail == true">
+                <!-- <div class="title-price">GIÁ KHÁM: .</div> -->
+            <div class="detail-infor">
+                <div class="price">
+                    <span class="left">Giá khám</span>
+                    <span class="right">{{extraInfor?.priceTypeData?.valueVi | currency:'VND'}}</span>
+                </div>
+                <div class="note">{{extraInfor?.note}}</div>
+            </div>
+            <div class="payment">
+                Người bệnh có thể thanh toán chi phí bằng hình thức:
+                {{extraInfor?.paymentTypeData?.valueVi}}
+            </div>
+            <div class="hide-price">
+                <span (click)="isShowDetail = false">Ẩn bảng giá</span>
+            </div>
+        </div>
+    </div>
+</div>

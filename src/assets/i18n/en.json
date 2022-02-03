@@ -1,0 +1,67 @@
+{
+    "title": {
+        "title1": "Specialist",
+        "content1":"Find a doctor by specialty",
+        "title2":"Health facilities",
+        "content2":"Choose hospital clinic",
+        "title3":"Doctors",
+        "content3":"Choose a good doctor",
+        "title4":"Examination package",
+        "content4":"General health check"
+    },
+    "support":"Support",
+    "language":"Choose language",
+    "bigTitle":{
+        "1":"MEDICAL BACKGROUND",
+        "2":"COMPREHENSIVE HEALTH CARE"
+    },
+    "search":"Find a medical specialty",
+    "service":{
+        "1":"Specialized examination",
+        "2":"Remote examination",
+        "3":"General examination",
+        "4":"Medical test",
+        "5":"Mental health",
+        "6":"Dental examination"
+    },
+    "system":"System",
+    "welcome":"Welcome, ",
+    "admin":{
+        "manage-user":"Users System",
+        "manage-doctor":"Manage doctors",
+        "manage-admin":"Manage admins",
+        "crud":"CRUD user",
+        "crud-ngrx":"CRUD NgRx",
+        "clinic":"Clinics",
+        "manage-clinic":"Manage clinics",
+        "specialty":"Specialties",
+        "manage-specialty":"Manage specialties",
+        "handbook":"HandBook",
+        "manage-handbook":"Manage handbook"
+    },
+    "doctor":{
+        "manage-schedule":"Manage Doctor schedule",
+        "manage-patient":"Manage Patient"
+    },
+    "manage-user":{
+        "add":"Add new user",
+        "email":"Email",
+        "password":"Password",
+        "first-name":"First Name",
+        "last-name":"Last Name",
+        "phone-number":"Phone Number",
+        "address":"Address",
+        "gender":"Gender",
+        "position":"Position",
+        "role":"Role",
+        "image":"Avatar",
+        "save":"Save user",
+        "change":"Save change"
+    },
+    "home-page":{
+        "outstandingDoctor":"Last week's featured doctor",
+        "more-infor":"More Infor",
+        "specialty":"Popular specialties",
+        "clinic":"Popular Clinics"
+    }
+}

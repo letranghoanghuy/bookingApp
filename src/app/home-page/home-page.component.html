@@ -1,0 +1,58 @@
+<app-home-header></app-home-header>
+<div class="home-header-banner">
+    <div class="content-up">
+        <div class="title1">{{'bigTitle.1'| translate}}</div>
+        <div class="title2">{{'bigTitle.2'| translate}}</div>
+        <div class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="{{'search'| translate}}">
+        </div>
+    </div>
+    <div class="content-down">
+        <div class="options">
+            <div class="option-child">
+                <div class="icon-child">
+                    <i class="far fa-hospital"></i>
+                </div>
+                <div class="text-child">{{'service.1'| translate}}</div>
+            </div>
+            <div class="option-child">
+                <div class="icon-child">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="text-child">{{'service.2'| translate}}</div>
+            </div>
+            <div class="option-child">
+                <div class="icon-child">
+                    <i class="fas fa-procedures"></i>
+                </div>
+                <div class="text-child">{{'service.3'| translate}}</div>
+            </div>
+            <div class="option-child">
+                <div class="icon-child">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <div class="text-child">{{'service.4'| translate}}</div>
+            </div>
+            <div class="option-child">
+                <div class="icon-child">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="text-child">{{'service.5'| translate}}</div>
+            </div>
+            <div class="option-child">
+                <div class="icon-child">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="text-child">{{'service.6'| translate}}</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<app-specialty [customOptions]="customOptions"></app-specialty>
+<app-medical-facility [customOptions]="customOptions"></app-medical-facility>
+<app-out-standing-doctor [customOptions]="customOptions"></app-out-standing-doctor>
+<app-hand-book [customOptions]="customOptions"></app-hand-book>
+<app-about></app-about>
+<app-home-footer></app-home-footer>

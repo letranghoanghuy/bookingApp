@@ -1,0 +1,17 @@
+<div class="intro-doctor">
+    <div class="content-left" style="background-image: url({{avatar}});"></div>
+    <div class="content-right">
+        <div class="up">
+            {{nameVi}}
+        </div>
+        <div class="down" *ngIf="ishow">
+            {{detailDoctor?.Markdown?.description}}
+        </div>
+        <div class="down" *ngIf="!ishow">
+            <div>
+                {{timeData?.timeTypeData?.valueVi}} - {{date}}
+            </div>
+            <div>Miễn phí đặt lịch</div>
+        </div>
+    </div>
+</div>
